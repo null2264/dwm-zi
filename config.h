@@ -6,19 +6,26 @@ static const int gappx     = 10;                 /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Iosevka:bold:size=10" };
+static const char *fonts[]          = { "Iosevka:bold:size=10", 
+					"feather:size=10"};
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
-static const char col_border_Foc[]  = "#60C0FF";
-static const char col_border_Nor[]  = "#353b48";
+static const char col_fg[]          = "#f5f6fa";
+static const char col_fgD[]         = "#2f3640";
+static const char col_bgTags[]      = "#434758";
+static const char col_bg[]          = "#2f3640";
+static const char col_primary[]     = "#37b0ff";
+static const char col_border_Foc[]  = "#37b0ff";
+static const char col_border_Nor[]  = "#2f3640";
+
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_border_Nor },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_border_Foc  },
+	/*                    fg         bg         border   */
+	[SchemeNorm]	  = { col_fg, col_bg, col_border_Nor },
+	[SchemeSel]  	  = { col_fg, col_bg,  col_border_Foc },
+	[SchemeStatus]    = { col_fg, col_bgTags, "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]   = { col_fg, col_primary,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsNorm]  = { col_fg, col_bgTags, "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+	[SchemeInfoSel]   = { col_fg, col_bg,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+	[SchemeInfoNorm]  = { col_fg, col_bg, "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
