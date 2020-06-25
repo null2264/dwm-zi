@@ -2,10 +2,12 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const int gappx     = 10;                 /* gaps between windows */
+static const int gappx     = 15;                 /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int user_bh            = 28;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = { "Iosevka:bold:size=10", 
 					"feather:size=10"};
 static const char dmenufont[]       = "monospace:size=10";
@@ -36,9 +38,11 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "firefox",  NULL, 	  NULL,       1 << 1,       0,           -1 },
+	/* class     instance title  tags mask	   isfloating	isterminal  noswallow  monitor */
+	{ "Gimp",     NULL,   NULL,	0,            1,	 0,		1,	-1, },
+	{ "firefox",  NULL,   NULL,	1 << 1,       0,         0,		0,	-1, },
+	{ "st",       NULL,   NULL,     0,            0,         1,            -1,        -1 },
+	{ NULL,      NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
 /* layout(s) */
@@ -80,7 +84,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static char rofi_theme[] = "~/.config/rofi/theme/Android/grid.rasi";
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-h", "20", "-m", dmenumon, NULL };
 static const char *roficmd[] = {"rofi", "-show", "drun", "-theme", rofi_theme};
 static const char *termcmd[]  = { "st", NULL };
 
@@ -88,8 +92,6 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ALTKEY,		XK_b,	   spawn,	   SHCMD("firefox") },
-	{ MODKEY, 			XK_Print,  spawn,	   SHCMD("~/.scripts/ss.sh") },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 /*	{ MODKEY|ALTKEY,                XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY|ALTKEY,                XK_k,      focusstack,     {.i = -1 } },*/
