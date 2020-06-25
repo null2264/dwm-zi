@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const int gappx     = 15;                 /* gaps between windows */
+static const int gappx     = 0;                 /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -84,7 +84,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static char rofi_theme[] = "~/.config/rofi/theme/Android/grid.rasi";
-static const char *dmenucmd[] = { "dmenu_run", "-h", "20", "-m", dmenumon, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-h", "28", "-m", dmenumon, NULL };
 static const char *roficmd[] = {"rofi", "-show", "drun", "-theme", rofi_theme};
 static const char *termcmd[]  = { "st", NULL };
 
