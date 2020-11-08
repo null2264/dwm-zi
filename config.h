@@ -94,7 +94,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static char rofi_theme[] = "~/.config/rofi/theme/Android/grid.rasi";
 static const char *dmenucmd[] = { "dmenu_run", "-h", "28", "-m", dmenumon, NULL };
 static const char *roficmd[] = {"rofi", "-show", "drun", "-theme", rofi_theme};
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
