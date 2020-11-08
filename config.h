@@ -50,6 +50,7 @@ static const Rule rules[] = {
 	{ "firefox",  NULL,   NULL,	1 << 1,       0,         0,		0,	-1, },
 	{ "Test-PyQT.py",  NULL,   NULL,	1 << 3,       1,         0,		0,	-1, },
 	{ "st",       NULL,   NULL,     0,            0,         1,            -1,        -1 },
+	{ "Alacritty",       NULL,   NULL,     0,            0,         1,            -1,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
