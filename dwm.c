@@ -2566,6 +2566,7 @@ updatesystrayicongeom(Client *i, int w, int h)
 		}
 	}
     /* i->h = i->h; */
+    /* Make the icon slightly smaller */
     i->w = i->w-12;
 }
 
