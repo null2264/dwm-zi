@@ -41,9 +41,12 @@ static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
+	 *	tags -> starts from 0
 	 */
 	/* class     instance title  tags mask	   isfloating	isterminal  noswallow  monitor */
 	{ "Gimp",     NULL,   NULL,	0,            1,	 0,		1,	-1, },
+	{ "discord",  NULL,   NULL,	1 << 8,       0,         0,		0,	-1, },
+	{ "qutebrowser",  NULL,   NULL,	1 << 1,       0,         0,		0,	-1, },
 	{ "firefox",  NULL,   NULL,	1 << 1,       0,         0,		0,	-1, },
 	{ "Test-PyQT.py",  NULL,   NULL,	1 << 3,       1,         0,		0,	-1, },
 	{ "st",       NULL,   NULL,     0,            0,         1,            -1,        -1 },
