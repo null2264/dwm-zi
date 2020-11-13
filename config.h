@@ -12,7 +12,8 @@ static const int swallowfloating    = 0;        /* 1 means swallow floating wind
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 28;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "Iosevka:bold:size=10", 
+static const char *fonts[]          = { "Sarasa Term J:bold:size=10",
+					"Iosevka Nerd Font:bold:size=10:antialias=true:autohint=true",
 					"feather:size=10"};
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_fg[]          = "#f5f6fa";
@@ -48,9 +49,11 @@ static const Rule rules[] = {
 	{ "discord",  NULL,   NULL,	1 << 8,       0,         0,		0,	-1, },
 	{ "qutebrowser",  NULL,   NULL,	1 << 1,       0,         0,		0,	-1, },
 	{ "firefox",  NULL,   NULL,	1 << 1,       0,         0,		0,	-1, },
+	{ "obs",      NULL,   NULL,	1 << 2,       0,         0,		0,	-1, },
+	{ "Spotify",  "spotify",   NULL,	1 << 3,       0,         0,		0,	-1, },
 	{ "Test-PyQT.py",  NULL,   NULL,	1 << 3,       1,         0,		0,	-1, },
 	{ "st",       NULL,   NULL,     0,            0,         1,            -1,        -1 },
-	{ "Alacritty",       NULL,   NULL,     0,            0,         1,            -1,        -1 },
+	{ "Alacritty",NULL,   NULL,     0,            0,         1,            -1,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
