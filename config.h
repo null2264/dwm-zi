@@ -46,6 +46,7 @@ static const Rule rules[] = {
 	 */
 	/* class     instance title  tags mask	   isfloating	isterminal  noswallow  monitor */
 	{ "Gimp",     NULL,   NULL,	0,            1,	 0,		1,	-1, },
+	{ "PacketTracer7",     NULL,   NULL,	0,            1,	 0,		1,	-1, },
 	{ "discord",  NULL,   NULL,	1 << 8,       0,         0,		0,	-1, },
 	{ "qutebrowser",  NULL,   NULL,	1 << 1,       0,         0,		0,	-1, },
 	{ "firefox",  NULL,   NULL,	1 << 1,       0,         0,		0,	-1, },
@@ -54,6 +55,7 @@ static const Rule rules[] = {
 	{ "Test-PyQT.py",  NULL,   NULL,	1 << 3,       1,         0,		0,	-1, },
 	{ "st",       NULL,   NULL,     0,            0,         1,            -1,        -1 },
 	{ "Alacritty",NULL,   NULL,     0,            0,         1,            -1,        -1 },
+	{ "kitty",NULL,   NULL,     0,            0,         1,            -1,        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,         1,          0,           1,        -1 }, /* xev */
 };
 
@@ -98,7 +100,7 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static char rofi_theme[] = "~/.config/rofi/theme/Android/grid.rasi";
 static const char *dmenucmd[] = { "dmenu_run", "-h", "28", "-m", dmenumon, NULL };
 static const char *roficmd[] = {"rofi", "-show", "drun", "-theme", rofi_theme};
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
