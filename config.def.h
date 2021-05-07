@@ -35,6 +35,10 @@ static const char *colors[][3]      = {
 	[SchemeInfoNorm]  = { col_fg, col_bg, "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
+/* sticky indicator */
+static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
+static const XPoint stickyiconbb    = {4,8};	/* defines the bottom right corner of the polygon's bounding box (speeds up scaling) */
+
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
 
@@ -50,6 +54,7 @@ static const Rule rules[] = {
 	{ "discord",  NULL,   NULL,	1 << 8,       0,         0,		0,	-1, },
 	{ "qutebrowser",  NULL,   NULL,	1 << 1,       0,         0,		0,	-1, },
 	{ "firefox",  NULL,   NULL,	1 << 1,       0,         0,		0,	-1, },
+	{ "Waterfox",  NULL,   NULL,	1 << 1,       0,         0,		0,	-1, },
 	{ "obs",      NULL,   NULL,	1 << 2,       0,         0,		0,	-1, },
 	{ "Spotify",  "spotify",   NULL,	1 << 3,       0,         0,		0,	-1, },
 	{ "Test-PyQT.py",  NULL,   NULL,	1 << 3,       1,         0,		0,	-1, },
@@ -109,8 +114,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 /*	{ MODKEY|ALTKEY,                XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY|ALTKEY,                XK_k,      focusstack,     {.i = -1 } },*/
-	{ MODKEY|ShiftMask,                XK_h,	   setgaps,        {.i = -5 } },
-	{ MODKEY|ShiftMask,                XK_l,	   setgaps,        {.i = +5 } },
+	{ MODKEY|ShiftMask,             XK_h,	   setgaps,        {.i = -5 } },
+	{ MODKEY|ShiftMask,             XK_l,	   setgaps,        {.i = +5 } },
 	{ MODKEY|ALTKEY|ShiftMask,      XK_equal,  setgaps,        {.i = 0  } },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
@@ -122,12 +127,13 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,                XK_l,      setmfact,       {.f = +0.05} },
 	/* { MODKEY,                       XK_Tab,    view,           {0} }, */
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_Tab,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY|ShiftMask,             XK_n,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,             XK_Tab,    setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
-	{ MODKEY|ShiftMask,		XK_s,      togglefloating, {0} },
+	{ MODKEY,			XK_f,      togglefloating, {0} },
+	{ MODKEY,                       XK_s,      togglesticky,   {0} },
 /*	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },*/
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
