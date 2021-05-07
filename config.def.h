@@ -127,11 +127,13 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,                XK_l,      setmfact,       {.f = +0.05} },
 	/* { MODKEY,                       XK_Tab,    view,           {0} }, */
 	{ MODKEY,                       XK_q,      killclient,     {0} },
+	// --- layout changer, should always use MODKEY + Shift
 	{ MODKEY|ShiftMask,             XK_s,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY|ShiftMask,             XK_n,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,             XK_Tab,    setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_r,      setlayout,      {.v = &layouts[4]} },
+	// ---
 	{ MODKEY,			XK_f,      togglefloating, {0} },
 	{ MODKEY,                       XK_s,      togglesticky,   {0} },
 /*	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
