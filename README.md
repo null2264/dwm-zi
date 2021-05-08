@@ -1,4 +1,4 @@
-zi-dwm
+dwm-zi
 ============================
 Patched version of DWM, with slight adjustment.
 
@@ -8,7 +8,6 @@ TIPS: Switching between tiling mode or key that affecting tiles will always use 
 
 `mod` = Windows/Super/(Command?) Key
 
-|-------------|-----------------------|
 |key|description|
 |-------------|-----------------------|
 |`mod`+`space`|Spawn dmenu            |
