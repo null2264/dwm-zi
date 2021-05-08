@@ -1,8 +1,32 @@
-dwm - dynamic window manager
+zi-dwm
 ============================
-dwm is an extremely fast, small, and dynamic window manager for X.
+Patched version of DWM, with slight adjustment.
+
+Keybinds
+--------
+TIPS: Switching between tiling mode or key that affecting tiles will always use MODKEY+Shift!
+
+`mod` = Windows/Super/(Command?) Key
+
+|-------------|-----------------------|
+|key|description|
+|-------------|-----------------------|
+|`mod`+`space`|Spawn dmenu            |
+|`mod`+`enter`|Spawn terminal (set to `kitty` by default)|
+|`mod`+`b`    |Toggle bar             |
+|`mod`+`shift`+`h`|Decrement gaps by 5|
+|`mod`+`shift`+`l`|Increment gaps by 5|
+|`mod`+`h`|Derement master window by 1|
+|`mod`+`l`|Increment master window by 1|
+|`mod`+`alt`+`shift`+`+`|Set gaps to 0|
+|`mod`+`j` or `k`|Switch focus        |
+|`mod`+`shift`+`j` or `k`|Switch focused window position|
 
 
+`DWM's README`
+-------------
+
+```
 Requirements
 ------------
 In order to build dwm you need the Xlib header files.
@@ -46,3 +70,4 @@ Configuration
 -------------
 The configuration of dwm is done by creating a custom config.h
 and (re)compiling the source code.
+```
