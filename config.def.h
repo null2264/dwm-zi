@@ -109,13 +109,14 @@ static const char *termcmd[]  = { "kitty", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_space,  spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	/* { MODKEY,                    XK_space,  spawn,          {.v = dmenucmd } }, */
+	{ MODKEY,                       XK_space,  spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 /*	{ MODKEY|ALTKEY,                XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY|ALTKEY,                XK_k,      focusstack,     {.i = -1 } },*/
 	{ MODKEY|ShiftMask,             XK_h,	   setgaps,        {.i = -5 } },
 	{ MODKEY|ShiftMask,             XK_l,	   setgaps,        {.i = +5 } },
+	{ NULL,				0x1008ff1b,spawn,	   {.v = dmenucmd } },
 	{ MODKEY|ALTKEY|ShiftMask,      XK_equal,  setgaps,        {.i = 0  } },
 	STACKKEYS(MODKEY,                          focus)
 	STACKKEYS(MODKEY|ShiftMask,                push)
