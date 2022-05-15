@@ -21,6 +21,9 @@ TIPS: Switching between tiling mode or key that affecting tiles will always use 
 |`mod`+`j` or `k`|Switch focus        |
 |`mod`+`shift`+`j` or `k`|Switch focused window position|
 
+Known Issues
+------------
+- `noto-fonts-emoji` crash DWM (visit [neofetch github repo](https://github.com/dylanaraps/neofetch) to test it), uninstall it for quick fix
 
 `DWM's README`
 -------------
