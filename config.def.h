@@ -1,30 +1,32 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const int gappx     = 15;                 /* gaps between windows */
-static const unsigned int snap      = 32;       /* snap pixel */
-static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
-static const unsigned int systrayspacing = 4;   /* systray spacing */
-static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
-static const int showsystray        = 1;     /* 0 means no systray */
-static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 1;        /* 0 means bottom bar */
-static const int user_bh            = 28;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
-static const char *fonts[]          = { "Sarasa Term J:bold:size=10",
-					"Iosevka Nerd Font:bold:size=10:antialias=true:autohint=true",
-					"feather:size=10"};
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_fg[]          = "#f5f6fa";
-static const char col_fgD[]         = "#2f3640";
-static const char col_bgTags[]      = "#434758";
-static const char col_bg[]          = "#2f3640";
-static const char col_primary[]     = "#37b0ff";
-static const char col_border_Foc[]  = "#37b0ff";
-static const char col_border_Nor[]  = "#2f3640";
+static const unsigned int borderpx       =  2;   /* border pixel of windows */
+static const int gappx                   = 15;   /* gaps between windows */
+static const unsigned int snap           = 32;   /* snap pixel */
+static const unsigned int systraypinning =  0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
+static const unsigned int systrayspacing =  4;   /* systray spacing */
+static const int systraypinningfailfirst =  1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
+static const int showsystray             =  1;   /* 0 means no systray */
+static const int swallowfloating         =  0;   /* 1 means swallow floating windows by default */
+static const int showbar                 =  1;   /* 0 means no bar */
+static const int topbar                  =  1;   /* 0 means bottom bar */
+static const int user_bh                 = 28;   /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
+static const char *fonts[]               =  {
+                                             "Sarasa Term J:bold:size=10",
+					     "Iosevka Nerd Font:bold:size=10:antialias=true:autohint=true",
+					     "feather:size=10"
+                                            };
+static const char dmenufont[]            = "monospace:size=10";
+static const char col_fg[]               = "#e1f3ff";
+static const char col_fgD[]              = "#2f3640";
+static const char col_bgTags[]           = "#2e3438";
+static const char col_bg[]               = "#0e1418";
+static const char col_primary[]          = "#37b0ff";
+static const char col_border_Foc[]       = "#37b0ff";
+static const char col_border_Nor[]       = "#2f3640";
 
-static const char *colors[][3]      = {
+static const char *colors[][3]           = {
 	/*                    fg         bg         border   */
 	[SchemeNorm]	  = { col_fg, col_bg, col_border_Nor },
 	[SchemeSel]  	  = { col_fg, col_bg,  col_border_Foc },
@@ -36,8 +38,8 @@ static const char *colors[][3]      = {
 };
 
 /* sticky indicator */
-static const XPoint stickyicon[]    = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
-static const XPoint stickyiconbb    = {4,8};	/* defines the bottom right corner of the polygon's bounding box (speeds up scaling) */
+static const XPoint stickyicon[]         = { {0,0}, {4,0}, {4,8}, {2,6}, {0,8}, {0,0} }; /* represents the icon as an array of vertices */
+static const XPoint stickyiconbb         = {4,8};	/* defines the bottom right corner of the polygon's bounding box (speeds up scaling) */
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" };
@@ -128,13 +130,13 @@ static Key keys[] = {
 	{ MODKEY|ALTKEY,		XK_l,		setmfact,       {.f = +0.05} },
 	/* { MODKEY,			XK_Tab,		view,           {0} }, */
 	{ MODKEY,			XK_q,		killclient,     {0} },
-	// --- layout changer, should always use MODKEY + Shift
+	// --- [Start] layout changer, should always use MODKEY + Shift
 	{ MODKEY|ShiftMask,             XK_s,		setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|ShiftMask,             XK_t,		setlayout,      {.v = &layouts[1]} },
 	{ MODKEY|ShiftMask,             XK_n,		setlayout,      {.v = &layouts[2]} },
 	{ MODKEY|ShiftMask,             XK_Tab,		setlayout,      {.v = &layouts[3]} },
 	{ MODKEY|ShiftMask,             XK_r,		setlayout,      {.v = &layouts[4]} },
-	// ---
+	// --- [End]
 	{ MODKEY,			XK_f,		togglefloating, {0} },
 	{ MODKEY,                       XK_s,		togglesticky,   {0} },
 /*	{ MODKEY,                       XK_0,		view,           {.ui = ~0 } },
